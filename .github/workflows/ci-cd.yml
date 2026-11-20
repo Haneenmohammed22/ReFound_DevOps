@@ -36,6 +36,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+    outputs:
+      image_tag: ${{ steps.set-image.outputs.image_tag }}
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
@@ -45,6 +47,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set lowercase GHCR image tag
+        id: set-image
+        run: |
+          OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          echo "image_tag=ghcr.io/${OWNER_LOWER}/refound:${{ github.sha }}" >> "$GITHUB_OUTPUT"
+          echo "IMAGE_BASE=ghcr.io/${OWNER_LOWER}/refound" >> "$GITHUB_ENV"
 
       - name: Build (local, for scanning)
         uses: docker/build-push-action@v6
@@ -70,8 +79,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.IMAGE }}:${{ github.sha }}
-            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE_BASE }}:${{ github.sha }}
+            ${{ env.IMAGE_BASE }}:latest
           cache-from: type=gha
 
   deploy:
@@ -90,6 +99,6 @@ jobs:
       - name: Deploy with Kustomize
         run: |
           cd k8s
-          kustomize edit set image ghcr.io/haneenmohammed22/refound=${{ env.IMAGE }}:${{ github.sha }}
+          kustomize edit set image ghcr.io/haneenmohammed22/refound=${{ needs.build-scan-push.outputs.image_tag }}
           kubectl apply -k .
           kubectl -n refound rollout status deployment/refound --timeout=180s
