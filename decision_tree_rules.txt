@@ -1,0 +1,13 @@
+|--- description_similarity <= 0.54
+|   |--- date_proximity <= 0.98
+|   |   |--- class: 0
+|   |--- date_proximity >  0.98
+|   |   |--- description_similarity <= 0.17
+|   |   |   |--- class: 0
+|   |   |--- description_similarity >  0.17
+|   |   |   |--- description_similarity <= 0.45
+|   |   |   |   |--- class: 1
+|   |   |   |--- description_similarity >  0.45
+|   |   |   |   |--- class: 1
+|--- description_similarity >  0.54
+|   |--- class: 1

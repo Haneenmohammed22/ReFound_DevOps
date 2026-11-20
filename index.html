@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#183B56" />
+  <title>ReFound | Lost. Matched. Found.</title>
+  <link rel="icon" href="assets/refound-logo.png" />
+  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="v10.css?v=10.2">
+<link rel="stylesheet" href="v11.css?v=11.0"></head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="ReFound home"><img src="assets/refound-logo.png" alt="ReFound — Lost. Matched. Found. official logo" /></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home" data-i18n="navHome">الرئيسية</a>
+        <a href="reports.html" data-i18n="navReports">البلاغات</a><a href="matches.html" id="navMatches">المطابقة الذكية</a>
+        <a href="#how" data-i18n="navHow">كيف يعمل؟</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="langBtn" class="lang-btn" type="button" aria-label="Switch language">🌐 <span id="langText">EN</span></button>
+        <button class="login-btn" type="button" id="loginBtn" data-i18n="login">تسجيل الدخول</button><a class="login-btn" id="dashboardLink" href="dashboard.html" hidden>حسابي / Dashboard</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="status-dot"></span> <span data-i18n="eyebrow">منصة ذكية لمجتمع الجامعة</span></span>
+          <h1 data-i18n="heroTitle">ضاعت منك حاجة؟<br><em>خلّينا نساعدك تلاقيها.</em></h1>
+          <p data-i18n="heroDesc">بلّغ عن حاجتك المفقودة أو عن شيء لقيته في الجامعة، وسيب المطابقة الذكية تساعدك توصل للبلاغ المناسب.</p>
+          <div class="hero-actions">
+            <button class="button primary" data-action="lost"><span data-i18n="lostBtn">فقدت شيئًا</span><span aria-hidden="true">↗</span></button>
+            <button class="button outline" data-action="found"><span data-i18n="foundBtn">عثرت على شيء</span><span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="hero-note"><span class="note-icon">✦</span> <span data-i18n="heroNote">مطابقة ذكية للأوصاف بالعربية والإنجليزية</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="logo-panel"><img src="assets/refound-logo.png" alt="ReFound official logo" /></div>
+          <div class="floating-chip chip-one"><span class="chip-icon">⌕</span><span data-i18n="chipOne">بحث أسهل</span></div>
+          <div class="floating-chip chip-two"><span class="chip-icon amber">✦</span><span data-i18n="chipTwo">مطابقة أذكى</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <div class="container"><div class="search-box">
+        <div class="search-icon" aria-hidden="true">⌕</div>
+        <input id="searchInput" type="search" placeholder="ابحث عن سماعة، محفظة، مفاتيح..." data-placeholder-ar="ابحث عن سماعة، محفظة، مفاتيح..." data-placeholder-en="Search for earbuds, wallet, keys..." />
+        <button class="button primary search-button" id="searchBtn" data-i18n="searchBtn">بحث</button>
+      </div></div>
+    </section>
+
+    <section class="reports-section section" id="reports">
+      <div class="container">
+        <div class="section-heading"><div><span class="overline" data-i18n="reportsKicker">استكشف البلاغات</span><h2 data-i18n="reportsTitle">أحدث البلاغات</h2><p data-i18n="reportsDesc">بلاغات حقيقية من قاعدة البيانات.</p></div><div class="tabs" role="group" aria-label="Report filters"><button class="tab active" data-filter="all" data-i18n="all">الكل</button><button class="tab" data-filter="lost" data-i18n="lost">مفقود</button><button class="tab" data-filter="found" data-i18n="found">موجود</button></div></div>
+        <div id="reportGrid" class="report-grid"></div>
+        <p id="noResults" class="no-results" hidden data-i18n="noResults">لا توجد نتائج مطابقة للبحث.</p>
+      </div>
+    </section>
+
+    <section class="how-section section" id="how"><div class="container"><div class="section-heading centered"><span class="overline" data-i18n="howKicker">بسيطة وآمنة</span><h2 data-i18n="howTitle">إزاي ReFound بيساعدك؟</h2></div><div class="steps"><article class="step"><div class="step-symbol">✎</div><span class="step-num">01</span><h3 data-i18n="step1Title">قدّم بلاغ</h3><p data-i18n="step1Desc">اكتب وصف الشيء ومكانه وتاريخ فقده أو العثور عليه.</p></article><article class="step"><div class="step-symbol">◎</div><span class="step-num">02</span><h3 data-i18n="step2Title">اكتشف التطابقات</h3><p data-i18n="step2Desc">النظام يقترح بلاغات مشابهة باستخدام تحليل النصوص.</p></article><article class="step"><div class="step-symbol">✓</div><span class="step-num">03</span><h3 data-i18n="step3Title">استرجع بأمان</h3><p data-i18n="step3Desc">يتم التحقق من الملكية قبل تسليم أي شيء لصاحبه.</p></article></div></div></section>
+
+    <section class="cta-section"><div class="container"><div class="cta-box"><div><span class="cta-kicker" data-i18n="ctaKicker">كل حاجة ليها طريق للرجوع</span><h2 data-i18n="ctaTitle">ساعد حد يرجّع حاجته النهارده.</h2><p data-i18n="ctaDesc">بلاغ صغير منك ممكن يفرق جدًا مع حد تاني.</p></div><button class="button light" data-action="found" data-i18n="ctaButton">أضف بلاغًا الآن</button></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container footer-content"><strong>ReFound</strong><span>Lost. Matched. Found.</span><small>© 2026 ReFound · <span data-i18n="footerNote">منصة المفقودات والموجودات الجامعية</span></small></div></footer>
+
+  <dialog id="demoDialog" class="dialog"><div class="dialog-inner"><button id="closeDialog" class="dialog-close" aria-label="Close">×</button><div class="dialog-symbol">✦</div><h2 id="dialogTitle"></h2><p id="dialogDesc"></p><button id="dialogOkay" class="button primary" data-i18n="okay">حسنًا</button></div></dialog>
+  <script src="script.js"></script><script src="session.js"></script>
+<script src="shared-nav.js?v=10.2"></script></body>
+</html>

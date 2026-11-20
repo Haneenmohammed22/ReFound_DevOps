@@ -1,0 +1,12 @@
+.git
+.github
+.venv
+venv
+__pycache__
+*.pyc
+instance
+k8s
+argocd
+*.md
+docker-compose.yml
+.env

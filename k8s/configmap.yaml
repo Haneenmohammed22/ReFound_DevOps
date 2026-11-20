@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: refound-config
+  namespace: refound
+data:
+  REFOUND_ENABLE_SEMANTIC: "0"

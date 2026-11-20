@@ -1,0 +1,29 @@
+/* ReFound V11: design tokens + universal finishing layer. Original logo not modified. */
+:root{--rf-shadow:0 16px 42px rgba(24,59,86,.075);--rf-focus:#20A39E;--rf-text:#183B56;--rf-radius:22px}
+html{scroll-behavior:smooth}body{color:var(--rf-text);background:#F5F8FA;-webkit-font-smoothing:antialiased}
+#rfTopbar{box-shadow:0 4px 24px rgba(24,59,86,.05)!important}#rfTopbar .rf-nav-inner{max-width:1480px}
+#rfTopbar .rf-links a{font-size:13px;letter-spacing:-.01em}#rfTopbar .rf-links a[aria-current=page]{box-shadow:inset 0 -2px #20A39E}
+#rfTopbar .rf-profile{box-shadow:0 1px 4px #183B5610}#rfTopbar .rf-avatar{background:linear-gradient(135deg,#183B56,#256885)}
+main{min-width:0}main .container{max-width:1320px}h1,h2,h3{letter-spacing:-.025em}h1{line-height:1.15}
+button,.button,input[type=submit],a.button{transition:background-color .18s,transform .18s,box-shadow .18s,border-color .18s}
+button:not(:disabled):active,.button:active{transform:translateY(1px)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #20A39E80!important;outline-offset:3px}
+input,select,textarea{max-width:100%;border-color:#d9e6eb}input:focus,textarea:focus,select:focus{border-color:#20A39E;box-shadow:0 0 0 3px #20A39E19}
+.report-card,.match-card,.v7-card,.v8card,.v8panel,.v9account,.auth-card,.search-box{box-shadow:var(--rf-shadow);border:1px solid #e0ebee}
+.report-card,.match-card,.v7-card,.v8card,.v8panel{transition:box-shadow .2s,transform .2s}
+@media(hover:hover){.report-card:hover,.match-card:hover{transform:translateY(-3px);box-shadow:0 22px 50px #183B561c}}
+.match-card .match-track{overflow:hidden}.match-card .match-score strong{font-variant-numeric:tabular-nums}
+.match-card .match-detail{min-height:46px;display:flex;align-items:center;justify-content:center}
+#resolveModal .v9dialog{animation:rf11-enter .24s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rf11-enter{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+#resolveModal .v9textarea{border:1px solid #d7e7eb!important;min-height:125px!important}
+#resolveModal .v9dialog:focus-within{border-color:#c4e9e4!important}
+/* Dynamic table content must fit narrow screens without breaking overall layout. */
+table{border-collapse:collapse;max-width:100%}table th,table td{vertical-align:middle}td{overflow-wrap:anywhere}
+@media(max-width:850px){.report-grid,.match-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))!important}main .container{padding-inline:18px}table{font-size:13px}}
+@media(max-width:600px){h1{font-size:clamp(2rem,9vw,3rem)}h2{font-size:clamp(1.4rem,6vw,2rem)}#rfTopbar .rf-nav-inner{gap:7px}#rfTopbar .rf-actions{gap:5px}#rfTopbar .rf-user{display:none}#rfTopbar .rf-profile{padding:5px}#rfTopbar .rf-avatar{width:31px;height:31px}.match-card,.v8panel,.v8card{padding:18px!important}#resolveModal .v9dialog{padding:20px!important;border-radius:18px!important}.hero-actions{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Advisory decision-tree panel: identical across AR/EN and mobile. */
+.tree-classification{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;background:#e7f5f2;color:#183B56;padding:12px 15px;border:1px solid #c9e9e2;border-radius:13px;margin-top:13px;font-size:.88rem}
+.tree-classification small{color:#557b81;font-size:.75rem}

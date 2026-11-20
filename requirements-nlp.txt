@@ -1,0 +1,3 @@
+-r requirements.txt
+# Optional: install to enable multilingual semantic embeddings (~large download on first run).
+sentence-transformers>=3,<6
