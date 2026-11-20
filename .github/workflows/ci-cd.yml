@@ -91,9 +91,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy with Kustomize
-        shell: bash
+        shell: pwsh
         run: |
-          cd k8s
+          Set-Location k8s
           kustomize edit set image ghcr.io/haneenmohammed22/refound=${{ needs.build-scan-push.outputs.image_tag }}
           kubectl apply -k .
           kubectl -n refound rollout status deployment/refound --timeout=180s
