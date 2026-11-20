@@ -36,12 +36,21 @@ class ApiSecurityTests(unittest.TestCase):
 
     def report(self, client, kind='found'):
         from datetime import date
-        res = client.post('/api/reports', data=dict(kind=kind,title='Gold necklace',
-                  category='Jewelry',color='Gold', location='Library',
-                  event_date=date.today().isoformat(),description='Found a golden necklace near library'))
-        self.assertEqual(res.status_code,201,res.get_json())
+        res = client.post(
+            '/api/reports',
+            data={
+                'kind': kind,
+                'title': 'Gold necklace',
+                'category': 'Jewelry',
+                'color': 'Gold',
+                'location': 'Library',
+                'event_date': date.today().isoformat(),
+                'description': 'Found a golden necklace near library',
+            },
+            content_type='multipart/form-data',
+        )
+        self.assertEqual(res.status_code, 201, res.get_json())
         return res.get_json()['id']
-
     def test_anonymous_access_blocked(self):
         self.assertEqual(self.guest.get('/api/me').status_code, 401)
         self.assertEqual(self.guest.get('/api/claims').status_code, 401)
