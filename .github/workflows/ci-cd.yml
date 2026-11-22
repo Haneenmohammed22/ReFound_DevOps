@@ -91,7 +91,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy with Kustomize
-        shell: powershell
+        shell: pwsh -ExecutionPolicy Bypass -Command "& '{0}'"
         run: |
           Set-Location k8s
           kustomize edit set image ghcr.io/haneenmohammed22/refound=${{ needs.build-scan-push.outputs.image_tag }}
